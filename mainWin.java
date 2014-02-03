@@ -36,17 +36,12 @@ public class mainWin extends QMainWindow {
     public mainWin() {
         ui.setupUi(this);
         
-        
-        // Here
         qNick 		= ui.nickEdit;
 		qRndResult 	= ui.resultRandomEdit;
         qListResult = ui.resultListEdit;
         qEnviaBtn	= ui.enviaBtn;
 		qRndBtn		= ui.RandBtn;
 
-        
-        
-        
         qEnviaBtn	.clicked.connect(this, "envia()");
         qRndBtn		.clicked.connect(this, "rand()");
         
@@ -77,44 +72,44 @@ public class mainWin extends QMainWindow {
 			e.printStackTrace();
 		}
     }
-    
-    
-
-        public String readLista(String arg) throws Exception{     
-            String str = "http://steamcommunity.com/id/" + arg + "/games?tab=all&xml=1";
-            str = getContenidoHTML(str);
+	
+	public String readLista(String arg) throws Exception{     
+		String str = "http://steamcommunity.com/id/" + arg + "/games?tab=all&xml=1";
+		str = getContenidoHTML(str);
+		
+		String ori = "";
+		String fin = "";
             
-            String ori = "";
-            String fin = "";
-            
-            while ( str.indexOf("\n")!=-1 ){
-                ori = str.substring(0,str.indexOf("\n"));
-                str = str.substring(str.indexOf("\n")+1,str.length());
-                int x = ori.indexOf("name><![CDATA["),
-                    y = ori.indexOf("]]></name");
-                if (x==-1 || y==-1){ 
-                    continue; }
-                fin += ori.substring(x+14,y) + "\n";
-            }
-            
-            return fin;
-        }
+		while ( str.indexOf("\n")!=-1 ){
+			ori = str.substring(0,str.indexOf("\n"));
+			str = str.substring(str.indexOf("\n")+1,str.length());
+			int x = ori.indexOf("name><![CDATA["),
+			    y = ori.indexOf("]]></name");
+			if (x==-1 || y==-1){ 
+			    continue; }
+			fin += ori.substring(x+14,y) + "\n";
+		}
+		
+			return fin;
+	}
         
-        private String getContenidoHTML(String u) throws IOException {
-                URL url = new URL(u);
-                URLConnection uc = url.openConnection();
-                uc.connect();
-                //Creamos el objeto con el que vamos a leer
-                BufferedReader in = new BufferedReader(new InputStreamReader(uc.getInputStream()));
-                String inputLine;
-                String contenido = "";
-                while ((inputLine = in.readLine()) != null) {
-                    contenido += inputLine + "\n";
-                }
-                in.close();
-                return contenido;
-        }
+	private String getContenidoHTML(String u) throws IOException {
+		URL url = new URL(u);
+		URLConnection uc = url.openConnection();
+		uc.connect();
+		
+		BufferedReader in = new BufferedReader(new InputStreamReader(uc.getInputStream()));
+		String inputLine;
+		String contenido = "";
+		
+		while ((inputLine = in.readLine()) != null) {
+	    	contenido += inputLine + "\n";
+		}
+		in.close();
+		
+		return contenido;
     }
+}
 
     
 
