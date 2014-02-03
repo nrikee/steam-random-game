@@ -27,8 +27,6 @@ public class mainWin extends QMainWindow {
 
         mainWin testmain = new mainWin();
         testmain.show();
-
-        
     }
 
     public mainWin() {
