@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
-import com.wordpress.nrikee.Ui_mainWin;
+import Ui_mainWin;
 import com.trolltech.qt.gui.QApplication;
 import com.trolltech.qt.gui.QLineEdit;
 import com.trolltech.qt.gui.QMainWindow;
@@ -54,7 +54,7 @@ public class mainWin extends QMainWindow {
     public void envia(){
     	try {
 			qListResult.clear();
-            qListResult.appendPlainText(readLista(qNick.text().trim()));
+            qListResult.appendPlainText( readLista( qNick.text().trim() ) );
 			qListResult.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -70,41 +70,39 @@ public class mainWin extends QMainWindow {
 			e.printStackTrace();
 		}
     }
-	
-	public String readLista(String arg) throws Exception{     
-		String str = "http://steamcommunity.com/id/" + arg + "/games?tab=all&xml=1";
-		str = getContenidoHTML(str);
-		
-		String ori = "";
-		String fin = "";
-            
-		while ( str.indexOf("\n")!=-1 ){
-			ori = str.substring(0,str.indexOf("\n"));
-			str = str.substring(str.indexOf("\n")+1,str.length());
-			int x = ori.indexOf("name><![CDATA["),
-			    y = ori.indexOf("]]></name");
-			if (x==-1 || y==-1){ 
-			    continue; }
-			fin += ori.substring(x+14,y) + "\n";
-		}
-		
-			return fin;
-	}
+    
+    public String readLista(String arg) throws Exception{     
+        String str = "http://steamcommunity.com/id/" + arg + "/games?tab=all&xml=1";
+        str = getContenidoHTML(str);
         
-	private String getContenidoHTML(String u) throws IOException {
-		URL url = new URL(u);
-		URLConnection uc = url.openConnection();
-		uc.connect();
-		
-		BufferedReader in = new BufferedReader(new InputStreamReader(uc.getInputStream()));
-		String inputLine;
-		String contenido = "";
-		
-		while ((inputLine = in.readLine()) != null) {
-	    	contenido += inputLine + "\n";
-		}
-		in.close();
-		
-		return contenido;
+        String ori = "";
+        String fin = "";
+        
+        while ( str.indexOf("\n")!=-1 ){
+            ori = str.substring(0,str.indexOf("\n"));
+            str = str.substring(str.indexOf("\n")+1,str.length());
+            int x = ori.indexOf("name><![CDATA["),
+                y = ori.indexOf("]]></name");
+            if (x==-1 || y==-1){ 
+                continue; }
+            fin += ori.substring(x+14,y) + "\n";
+        }
+        
+        return fin;
+    }
+        
+    private String getContenidoHTML(String u) throws IOException {
+            URL url = new URL(u);
+            URLConnection uc = url.openConnection();
+            uc.connect();
+            //Creamos el objeto con el que vamos a leer
+            BufferedReader in = new BufferedReader(new InputStreamReader(uc.getInputStream()));
+            String inputLine;
+            String contenido = "";
+            while ((inputLine = in.readLine()) != null) {
+                contenido += inputLine + "\n";
+            }
+            in.close();
+            return contenido;
     }
 }
