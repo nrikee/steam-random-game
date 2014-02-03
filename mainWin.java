@@ -16,10 +16,10 @@ public class mainWin extends QMainWindow {
 
     Ui_mainWin ui = new Ui_mainWin();
     QLineEdit 		qNick 		,
-    				qRndResult 	;
+    			qRndResult 	;
     QPlainTextEdit	qListResult ;
     QPushButton		qEnviaBtn	,
-					qRndBtn		;
+			qRndBtn		;
     
     
     public static void main(String[] args) {
@@ -35,10 +35,10 @@ public class mainWin extends QMainWindow {
         ui.setupUi(this);
         
         qNick 		= ui.nickEdit;
-		qRndResult 	= ui.resultRandomEdit;
-        qListResult = ui.resultListEdit;
+	qRndResult 	= ui.resultRandomEdit;
+        qListResult     = ui.resultListEdit;
         qEnviaBtn	= ui.enviaBtn;
-		qRndBtn		= ui.RandBtn;
+	qRndBtn		= ui.RandBtn;
 
         qEnviaBtn	.clicked.connect(this, "envia()");
         qRndBtn		.clicked.connect(this, "rand()");
