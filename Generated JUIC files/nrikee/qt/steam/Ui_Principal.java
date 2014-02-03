@@ -1,48 +1,50 @@
 /********************************************************************************
-** Form generated from reading ui file 'mainWin.jui'
+** Form generated from reading ui file 'Principal.jui'
 **
-** Created: mié 23. oct 23:42:00 2013
+** Created: mar 4. feb 00:19:40 2014
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
 ********************************************************************************/
 
-package com.wordpress.nrikee;
+package nrikee.qt.steam;
 
 import com.trolltech.qt.core.*;
 import com.trolltech.qt.gui.*;
 
-public class Ui_mainWin implements com.trolltech.qt.QUiForm<QMainWindow>
+public class Ui_Principal implements com.trolltech.qt.QUiForm<QMainWindow>
 {
     public QWidget centralwidget;
     public QVBoxLayout verticalLayout;
     public QHBoxLayout horizontalLayout_2;
     public QLabel labelPrimer;
     public QSpacerItem horizontalSpacer_2;
-    public QLabel label_2;
+    public QLabel label_2asdasdfa;
     public QHBoxLayout horizontalLayout;
     public QLineEdit nickEdit;
     public QPushButton enviaBtn;
     public QPushButton RandBtn;
     public QSpacerItem horizontalSpacer;
     public QHBoxLayout horizontalLayout_3;
+    public QLabel numJuegos;
     public QSpacerItem horizontalSpacer_4;
     public QLabel label_3;
     public QLineEdit resultRandomEdit;
     public QPlainTextEdit resultListEdit;
     public QHBoxLayout horizontalLayout_4;
-    public QLabel label_4;
     public QSpacerItem horizontalSpacer_3;
     public QLabel label_5;
-    public QStatusBar statusbar;
 
-    public Ui_mainWin() { super(); }
+    public Ui_Principal() { super(); }
 
-    public void setupUi(QMainWindow main)
+    public void setupUi(QMainWindow Principal)
     {
-        main.setObjectName("main");
-        main.resize(new QSize(800, 600).expandedTo(main.minimumSizeHint()));
-        centralwidget = new QWidget(main);
+        Principal.setObjectName("Principal");
+        Principal.resize(new QSize(800, 411).expandedTo(Principal.minimumSizeHint()));
+        Principal.setWindowIcon(new QIcon(new QPixmap("classpath:nrikee/qt/steam/asd.png")));
+        Principal.setToolButtonStyle(com.trolltech.qt.core.Qt.ToolButtonStyle.ToolButtonTextBesideIcon);
+        Principal.setAnimated(false);
+        centralwidget = new QWidget(Principal);
         centralwidget.setObjectName("centralwidget");
         verticalLayout = new QVBoxLayout(centralwidget);
         verticalLayout.setObjectName("verticalLayout");
@@ -58,10 +60,10 @@ public class Ui_mainWin implements com.trolltech.qt.QUiForm<QMainWindow>
 
         horizontalLayout_2.addItem(horizontalSpacer_2);
 
-        label_2 = new QLabel(centralwidget);
-        label_2.setObjectName("label_2");
+        label_2asdasdfa = new QLabel(centralwidget);
+        label_2asdasdfa.setObjectName("label_2asdasdfa");
 
-        horizontalLayout_2.addWidget(label_2);
+        horizontalLayout_2.addWidget(label_2asdasdfa);
 
 
         verticalLayout.addLayout(horizontalLayout_2);
@@ -93,6 +95,12 @@ public class Ui_mainWin implements com.trolltech.qt.QUiForm<QMainWindow>
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3.setObjectName("horizontalLayout_3");
+        numJuegos = new QLabel(centralwidget);
+        numJuegos.setObjectName("numJuegos");
+        numJuegos.setTextFormat(com.trolltech.qt.core.Qt.TextFormat.RichText);
+
+        horizontalLayout_3.addWidget(numJuegos);
+
         horizontalSpacer_4 = new QSpacerItem(40, 20, com.trolltech.qt.gui.QSizePolicy.Policy.Expanding, com.trolltech.qt.gui.QSizePolicy.Policy.Minimum);
 
         horizontalLayout_3.addItem(horizontalSpacer_4);
@@ -113,16 +121,14 @@ public class Ui_mainWin implements com.trolltech.qt.QUiForm<QMainWindow>
 
         resultListEdit = new QPlainTextEdit(centralwidget);
         resultListEdit.setObjectName("resultListEdit");
+        resultListEdit.setEnabled(false);
+        resultListEdit.setUndoRedoEnabled(false);
+        resultListEdit.setTextInteractionFlags(com.trolltech.qt.core.Qt.TextInteractionFlag.createQFlags(com.trolltech.qt.core.Qt.TextInteractionFlag.TextEditable,com.trolltech.qt.core.Qt.TextInteractionFlag.TextSelectableByKeyboard));
 
         verticalLayout.addWidget(resultListEdit);
 
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4.setObjectName("horizontalLayout_4");
-        label_4 = new QLabel(centralwidget);
-        label_4.setObjectName("label_4");
-
-        horizontalLayout_4.addWidget(label_4);
-
         horizontalSpacer_3 = new QSpacerItem(40, 20, com.trolltech.qt.gui.QSizePolicy.Policy.Expanding, com.trolltech.qt.gui.QSizePolicy.Policy.Minimum);
 
         horizontalLayout_4.addItem(horizontalSpacer_3);
@@ -137,25 +143,26 @@ public class Ui_mainWin implements com.trolltech.qt.QUiForm<QMainWindow>
 
         verticalLayout.addLayout(horizontalLayout_4);
 
-        main.setCentralWidget(centralwidget);
-        statusbar = new QStatusBar(main);
-        statusbar.setObjectName("statusbar");
-        main.setStatusBar(statusbar);
-        retranslateUi(main);
+        Principal.setCentralWidget(centralwidget);
+        retranslateUi(Principal);
 
-        main.connectSlotsByName();
+        Principal.connectSlotsByName();
     } // setupUi
 
-    void retranslateUi(QMainWindow main)
+    void retranslateUi(QMainWindow Principal)
     {
-        main.setWindowTitle(com.trolltech.qt.core.QCoreApplication.translate("main", "MainWindow", null));
-        labelPrimer.setText(com.trolltech.qt.core.QCoreApplication.translate("main", "Introduce tu nick de Steam", null));
-        label_2.setText(com.trolltech.qt.core.QCoreApplication.translate("main", "Elige un juego aleatoriamente", null));
-        enviaBtn.setText(com.trolltech.qt.core.QCoreApplication.translate("main", "Envia", null));
-        RandBtn.setText(com.trolltech.qt.core.QCoreApplication.translate("main", "Voy a tener suerte", null));
-        label_3.setText(com.trolltech.qt.core.QCoreApplication.translate("main", "El juego elegido aleatoriamente es: ", null));
-        label_4.setText(com.trolltech.qt.core.QCoreApplication.translate("main", "Autor: @nrikee93", null));
-        label_5.setText(com.trolltech.qt.core.QCoreApplication.translate("main", "http://nrikee.wordpress.com", null));
+        Principal.setWindowTitle(com.trolltech.qt.core.QCoreApplication.translate("Principal", "Random game launcher", null));
+        labelPrimer.setText(com.trolltech.qt.core.QCoreApplication.translate("Principal", "Introduce tu nick de Steam", null));
+        label_2asdasdfa.setText(com.trolltech.qt.core.QCoreApplication.translate("Principal", "Elige un juego aleatoriamente", null));
+        enviaBtn.setText(com.trolltech.qt.core.QCoreApplication.translate("Principal", "Envia", null));
+        RandBtn.setText(com.trolltech.qt.core.QCoreApplication.translate("Principal", "Voy a tener suerte", null));
+        numJuegos.setText(com.trolltech.qt.core.QCoreApplication.translate("Principal", "Tienes 1000 juegos", null));
+        label_3.setText(com.trolltech.qt.core.QCoreApplication.translate("Principal", "El juego elegido aleatoriamente es: ", null));
+        label_5.setText(com.trolltech.qt.core.QCoreApplication.translate("Principal", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"+
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"+
+"p, li { white-space: pre-wrap; }\n"+
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"+
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">http://nrikee.com/wordpress</span></p></body></html>", null));
     } // retranslateUi
 
 }
