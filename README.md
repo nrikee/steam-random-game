@@ -12,3 +12,5 @@ List your (or another's) library of Steam and launches one randomly, if desired.
 ## To-Do
 * Improve the GUI.
 * Improve algorithm to extract files from an xml. It's horrible now.
+
+## [Download executable](https://github.com/nrikee/steam-random-game/blob/master/Random%20game%20launcher.jar)
